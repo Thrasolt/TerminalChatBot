@@ -7,6 +7,7 @@ export default class ChatItem extends React.Component {
 
     const style = {
       fontFamily: 'Courier New',
+      color: 'white',
     }
 
     return (

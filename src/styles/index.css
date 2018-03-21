@@ -1,0 +1,26 @@
+body {
+  background-color: #300a24;
+}
+
+.container {
+  display: flex;
+  font-family: Courier New;
+  font-weight: bold;
+}
+
+.root {
+  color: #00ff00;
+}
+
+.inputStyle {
+  outline: none;
+  color: white;
+  font-family: Courier New;
+  font-weight: normal;
+  background-color: transparent;
+  border-width: 0px;
+  border: none;
+  height: 20px;
+  width: 160px;
+  font-size: 100%;
+}

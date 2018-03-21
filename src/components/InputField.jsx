@@ -29,31 +29,14 @@ export default class InputField extends React.Component {
 
   render() {
 
-    const style = {
-      fontFamily: 'Courier New',
-      fontWeight: 'bold',
-    }
-
-    const inputStyle = {
-      outline: 'none',
-      fontFamily: 'Courier New',
-      fontWeight: 'bold',
-      backgroundColor: 'transparent',
-      borderWidth: '0px',
-      border: 'none',
-      height: '20px',
-      width: '160px',
-      color: '#CCC',
-      fontSize: '100%',
-      color: 'black',
-    }
-
     return (
-      <div style={style}>
-        {this.props.rootText}
+      <div className="container">
+        <div className="root">
+          {this.props.rootText}
+        </div>
         <input
           type="text"
-          style={inputStyle}
+          className="inputStyle"
           autoFocus={true}
           onChange={this.changeText}
           onKeyPress={this.keyPress}
