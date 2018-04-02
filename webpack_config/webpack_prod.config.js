@@ -1,10 +1,17 @@
 const webpack = require('webpack');
 
+// use resolve() to normalize paths between unix/windows environments
+var path = require('path');
+
+function resolve (dir) {
+    return path.join(__dirname, '..', dir)
+}
+
 module.exports = {
   entry: [
-    'react-hot-loader/patch',
-    './src/index.js'
+    resolve('./src/frontend/index.js')
   ],
+
   module: {
     rules: [
       {
@@ -12,7 +19,7 @@ module.exports = {
         exclude: /node_modules/,
         use: ['babel-loader']
       },
-      {  
+      {
         test:/\.(s*)css$/,
         use:['style-loader','css-loader', 'sass-loader']
       }
@@ -23,15 +30,13 @@ module.exports = {
     extensions: ['*', '.js', '.jsx']
   },
   output: {
-    path: __dirname + '/dist',
+    path: resolve('./dist/frontend/'),
     publicPath: '/',
-    filename: 'bundle.js'
+    filename: 'bundle.min.js'
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin()
-  ],
-  devServer: {
-    contentBase: './dist',
-    hot: true
-  }
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': '"production"'
+      })
+  ]
 };
